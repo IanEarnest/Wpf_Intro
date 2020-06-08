@@ -4,9 +4,48 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Intro"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        mc:Ignorable="d" FontSize="18"
+        Title="My Title" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="1"
+                   Text="Hello World" FontSize="25"
+                   Grid.ColumnSpan="3"
+                   Margin="0,0,0,10"/>
+        
+        <TextBlock Grid.Column="1" Grid.Row="2"
+                   Text="Name:"
+                   Grid.ColumnSpan="1"
+                   Margin="0,0,0,10"/>
+
+        <TextBox Grid.Column="2" Grid.Row="2"
+                   x:Name="nameTxt"
+                   Grid.ColumnSpan="1"
+                   Width="150"/>
+        <Button Grid.Column="1" Grid.Row="3"
+                   x:Name="submitBtn"
+                   Content="Submit"
+                   Grid.ColumnSpan="2"
+                   Margin="10" 
+                   Click="submitBtn_Click"/>
 
     </Grid>
 </Window>

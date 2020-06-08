@@ -20,9 +20,25 @@ namespace Wpf_Intro
     /// </summary>
     public partial class MainWindow : Window
     {
+        // IAmTimCorey course
+        // https://www.youtube.com/watch?v=gSfMNjWNoX0&list=PLLWMQd6PeGY3QEHCmCWaUKNhmFFdIDxE8
+
+        // use MVVM with WPF - Caliburn Micro (NuGet)
+
+        // Task List =  TODO, UNDONE, HACK
+
+        // UNDONE this
         public MainWindow()
         {
+            // TODO start
             InitializeComponent();
+            // HACK quick print
+        }
+
+        //nameTxt = TextBlock
+        private void submitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Hello: {nameTxt.Text}");
         }
     }
 }
