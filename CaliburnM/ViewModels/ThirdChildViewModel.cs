@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CaliburnM.ViewModels
 {
-    public class SecondChildViewModel : Screen
+    class ThirdChildViewModel : Screen
     {
         public BindableCollection<PersonModel> People
         {
@@ -19,7 +19,7 @@ namespace CaliburnM.ViewModels
         }
 
 
-        public SecondChildViewModel()
+        public ThirdChildViewModel()
         {
             DataAccess da = new DataAccess();
             People = new BindableCollection<PersonModel>(da.GetPeople());

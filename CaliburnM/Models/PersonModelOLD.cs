@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CaliburnM.Models
 {
-    public class PersonModel
+    public class PersonModelOLD
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

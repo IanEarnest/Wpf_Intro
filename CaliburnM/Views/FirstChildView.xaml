@@ -5,8 +5,60 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CaliburnM.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="Blue">
+             d:DesignHeight="450" d:DesignWidth="800" Background="LightBlue">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <!--More-->
+            <ColumnDefinition Width="auto"/>
+            <!--More-->
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <!--More-->
+            <RowDefinition Height="auto"/>
+            <!--More-->
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <!--    DisplayMemberPath="{Binding Path=People}-->
+        <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="6"
+                    Orientation="Horizontal" >
+            <Button Margin="5" x:Name="AddPerson">Add Person</Button>
+            <Button Margin="5" x:Name="RemovePerson">Remove Last Person</Button>
+        </StackPanel>
+        
+        <ItemsControl Grid.Column="1" Grid.Row="3"
+                      x:Name="People" MaxWidth="710">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
             
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding FullName}"/>
+                            <TextBlock Text="{Binding AccountBalance}"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>

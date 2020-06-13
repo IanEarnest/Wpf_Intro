@@ -81,8 +81,9 @@
         <!-- A Video -->
         <MediaElement 
             Grid.Column="4" Grid.Row="1" Grid.RowSpan="3" 
-            Source="/video1.mp4" MaxHeight="100" IsMuted="True"/>
-
+            Source="C:\Users\ianea\source\repos\Wpf_Intro\Intro\video1.mp4" MaxHeight="100" IsMuted="True"/>
+        <!-- /video1.mp4 // not working-->
+        
         <!-- A collection of images -->
         <StackPanel Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="3" Orientation="Horizontal">
             <Image Source="/image1.jpg" MaxHeight="100" MaxWidth="100" />

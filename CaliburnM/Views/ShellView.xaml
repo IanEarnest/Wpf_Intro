@@ -64,7 +64,60 @@
                 x:Name="LoadPageTwo">
             Page Two
         </Button>
+        <Button Grid.Column="3" Grid.Row="6"
+                x:Name="LoadPageThree">
+            Page Three
+        </Button>
         <ContentControl Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="6"
                         x:Name="ActiveItem"/> <!-- Active form-->
+
+        <!-- Name:... -->
+        <TextBlock Grid.Column="3" Grid.Row="1" Text="Name"/>
+        <TextBlock Grid.Column="3" Grid.Row="2" Text="Address"/>
+        <TextBlock Grid.Column="3" Grid.Row="3" Text="Primary Address"/>
+        <TextBlock Grid.Column="3" Grid.Row="4" Text="IsAlive"/>
+
+        <!-- Data -->
+        <TextBlock Grid.Column="4" Grid.Row="1" MinWidth="100"
+                   x:Name="SelectedPerson2_FullName"/>
+        <TextBlock Grid.Column="4" Grid.Row="2"
+                   x:Name="SelectedAddress_FullAddress"/>
+        <TextBlock Grid.Column="4" Grid.Row="3"
+                   x:Name="SelectedPerson2_PrimaryAddress_FullAddress"/>
+        <TextBlock Grid.Column="4" Grid.Row="4"
+                   x:Name="SelectedPerson2_IsAlive"/>
+        
+        <!-- ComboBox -->
+        <ComboBox Grid.Column="5" Grid.Row="1" 
+                  MinWidth="200"
+                  x:Name="People2"
+                  SelectedItem="{Binding Path=SelectedPerson2}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding FullName}"/>
+                        <TextBlock Text=", Are they alive?"/>
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding IsAlive}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <!-- ComboBox -->
+        <ComboBox Grid.Column="5" Grid.Row="2" 
+                  MinWidth="200"
+                  x:Name="SelectedPerson2_Addresses"
+                  SelectedItem="{Binding Path=SelectedAddress}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding FullAddress}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <!--x:Name="People"
+                  SelectedItem="{Binding Path=SelectedPerson, Mode=OneWayToSource}"
+                  DisplayMemberPath="FirstName"/>-->
     </Grid>
 </Window>

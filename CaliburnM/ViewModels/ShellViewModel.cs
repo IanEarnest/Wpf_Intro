@@ -1,8 +1,11 @@
 ﻿using Caliburn.Micro;
 using CaliburnM.Models;
+using MyLib1;
+using MyLib1.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +43,9 @@ namespace CaliburnM.ViewModels
         public ShellViewModel()
         {
             AddPeopleToList(); // Add 3 people to list
+
+            DataAccess da = new DataAccess();
+            People2 = new BindableCollection<PersonModel>(da.GetPeople());
         }
         private void AddPeopleToList()
         {
@@ -84,6 +90,10 @@ namespace CaliburnM.ViewModels
         {
             ActivateItem(new SecondChildViewModel());
         }
+        public void LoadPageThree()
+        {
+            ActivateItem(new ThirdChildViewModel());
+        }
 
         public string FirstName
         {
@@ -122,6 +132,11 @@ namespace CaliburnM.ViewModels
             }
         }
 
+        public bool IsAlive
+        {
+            get; 
+            set;
+        }
 
         public BindableCollection<PersonModel> People
         {
@@ -139,5 +154,52 @@ namespace CaliburnM.ViewModels
                 NotifyOfPropertyChange(() => SelectedPerson);
             }
         }
+
+
+        public BindableCollection<PersonModel> People2 { get; set; }
+
+
+        private PersonModel _SelectedPerson2;
+        public PersonModel SelectedPerson2
+        {
+            get
+            {
+                try
+                {
+                    //Debug.Print($"Value2: {_SelectedPerson2.Addresses[0].City}");
+                    //Debug.Print($"Value2: {_SelectedPerson2.PrimaryAddress.City}");
+                }
+                catch (Exception e)
+                {
+                    Debug.Print($"E: {e.Message}");
+                }
+                return _SelectedPerson2; 
+                
+            }
+            set 
+            {
+                //Debug.Print($"Value: {value}");//lib.Models.PersonModel
+                //Debug.Print($"Value: {value.PrimaryAddress}");//lib.Models.PersonModel
+                _SelectedPerson2 = value;
+                SelectedAddress = value.PrimaryAddress;
+                NotifyOfPropertyChange(() => SelectedPerson2);
+            }
+        }
+        private AddressModel _SelectedAddress;
+        public AddressModel SelectedAddress
+        {
+            get
+            {
+                return _SelectedAddress; 
+            }
+            set
+            {
+                _SelectedAddress = value;
+                SelectedPerson2.PrimaryAddress = value;
+                NotifyOfPropertyChange(() => SelectedAddress);
+                NotifyOfPropertyChange(() => SelectedPerson2);
+            }
+        }
+
     }
 }
